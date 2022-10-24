@@ -15,7 +15,7 @@ import Tomorrow from './Tomorrow'
 
 
 function App() {
-  let width = useRef(null)
+  
   const [time, setTime] = useState("")
   let ArrMonth = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER']
   let [line, setLine] = useState('yes')
@@ -34,9 +34,7 @@ function App() {
 
     setTime(`${day} ${ArrMonth.at(month)} ${year}`)
     
-    window.onresize = () =>{
-      width = window.innerWidth
-    }
+   
    
   }, [])
 
@@ -53,7 +51,7 @@ function App() {
               <section  style={{background: context.toggle == false ? " linear-gradient(45deg, rgb(244,177,124), rgb(252,208,131))" : "linear-gradient(45deg, #3F4E4F, #1B2430 )", padding:"1em", }} >
                 <>
                      <div className={styles.img} >
-                     <Image src={Lotus} />
+                     <Image src={Lotus} alt='lotus' />
                    </div> 
                 </>
                 <>
@@ -64,10 +62,10 @@ function App() {
                         <div className={styles.mode}>
                            {context.toggle == false ? 
                                <span>
-                               <Image onClick={()=> context.setToggle(true)} src={light} width={50} height={50} alt="" />
+                               <Image onClick={()=> context.setToggle(true)} src={light} width={50} height={50} alt="ligtmode" />
                              </span> :
                               <span>
-                              <Image onClick={()=> context.setToggle(false)} src={dark} width={50} height={50} alt="" />
+                              <Image onClick={()=> context.setToggle(false)} src={dark} width={50} height={50} alt="darkmode" />
                             </span>
                           }
                         </div>
@@ -101,7 +99,7 @@ function App() {
                 </>
                 <>
                     <div className={styles.img2}>
-                      <Image src={Lotus}  />
+                      <Image src={Lotus} alt='lotus' />
                     </div>
                 </>
               </section>

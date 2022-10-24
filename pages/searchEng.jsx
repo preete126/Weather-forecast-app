@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import styles from '../styles/search.module.css'
 import key from './api/key';
 
-const SearchEng = (props) => {
+const SearchEng = ({setCurrentweather}) => {
     const [content, setContent] = useState("");
     const [error, setError] = useState(null);
     // const API_KEY = "b29986140bba4fea9fb171132221410"
@@ -13,7 +13,7 @@ const SearchEng = (props) => {
         const url = `${key.BASE_URL}/current.json?key=${key.API_KEY}&q=${city !== "[object Object]" ? city : content}&aqi=no`;
         axios.get(url)
             .then(response => {
-                props.setCurrentweather(response.data)
+                setCurrentweather(response.data)
               
             })
             .catch(err => {
@@ -27,7 +27,7 @@ const SearchEng = (props) => {
             )
         }
        
-    }, [])
+    })
 
     const search = (ev) => {
         ev.preventDefault()
